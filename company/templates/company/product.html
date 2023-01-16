@@ -1,0 +1,11 @@
+{% extends 'company/base.html' %} {% block title %} Product {% endblock title %}
+{% block content %}
+<br>
+<h1>Our Fruits</h1>
+<br>
+{% for product in data %}
+<h2>{{ product.name }}</h2>
+<p>รายละเอียด:{{ product.detail}}</p>
+<p>ราคา:{{ product.price}} Baht</p>
+<hr />
+{% endfor %} {% endblock content %}
