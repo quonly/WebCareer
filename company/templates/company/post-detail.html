@@ -1,0 +1,12 @@
+{% extends 'company/base.html' %} {% block title %}blog{% endblock title %} 
+{% block content %}
+<div class="container mt-2">
+  <div class="col-sm-8">
+    <h1>{{data.title}}</h1>
+    <p>{{data.date_created | date }} - Last update: {{ data.date_updated | date}}</p>
+    <img src="{{data.featured_pic.url}}" class="img-fluid" alt="" />
+    <!-- | in Django mean FIlter -->
+    <p>{{data.body | safe}}</p>
+  </div>
+</div>
+{% endblock content %}
