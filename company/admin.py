@@ -15,3 +15,4 @@ class PostAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
 # เพื่อให้แสดงใน admin
 admin.site.register(Post,PostAdmin)
 admin.site.register(ProductDemo)
+admin.site.register(Contact)

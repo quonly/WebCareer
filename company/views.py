@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post,ProductDemo
+from .forms import ContactForm
+from django.db.models import Q
 # Create your views here.
 # render(request,path html)
 def Homepage(request):
@@ -10,8 +12,8 @@ def Homepage(request):
     
     return render(request,'company/home.html',{'all_posts':all_posts})
 
-def post_detail(request, id): # ref with id must add argument id
-    single_post = Post.objects.get(id=id) 
+def post_detail(request, test): # ref with id must add argument id
+    single_post = Post.objects.get(id=test) 
     context = {'data':single_post}
     return render(request,'company/post-detail.html',context)
 
@@ -24,3 +26,28 @@ def Product(request):
     data = ProductDemo.objects.all() # objects.all() เป็นการคิวรี่แบบ Django --> SELECT * from company_ProductDemo (SQL)
     context = {'data':data}
     return render(request,'company/product.html',context)
+
+def Contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save to DB
+            form.save()
+            return redirect("/")
+    else:
+        form = ContactForm()
+    return render(request,'company/contact.html',{
+        'form' : form,
+    })
+    
+def search(request):
+    # Get the incoming query params
+    search_post = request.GET.get('q')
+    if search_post:
+        posts = Post.objects.filter(Q(title__icontains = search_post))
+    else:
+        pass
+    return render(request,'company/search.html',{
+        'posts':posts,
+        'search_text': search_post,
+    })
