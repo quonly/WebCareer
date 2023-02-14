@@ -1,0 +1,21 @@
+{% extends 'company/base.html' %}
+{% block content %}
+<h1>Add Book</h1>
+<p>เพิ่มหนังสือ</p>
+<form method="POST" action="/addbook">
+     {% csrf_token %} 
+     <div class="form-group">
+        <label for="book_name">ชื่อหนังสือ</label>
+        <input type="text" class="form-control" id="book_name" name="book_title">
+     </div>
+     <div class="form-group">
+        <label for="book_description">รายละเอียดหนังสือ</label>
+        <input type="text" class="form-control" id="book_description" name="book_description">
+     </div>
+     <div class="form-group">
+        <label for="book_price">ราคาหนังสือ</label>
+        <input type="number" step="0.00" class="form-control" id="book_price" name="book_price">
+     </div>
+     <input type="submit" value="submit" class="btn btn-primary">
+</form>
+{% endblock content %}

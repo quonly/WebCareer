@@ -41,3 +41,12 @@ class Contact(models.Model):
     
     def __str__(self):
         return self.subject
+    
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True,null=True)
+    price = models.FloatField(default=100)
+
+
+    def __str__(self):
+        return '{}({})'.format(self.title,self.price)

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Post,ProductDemo
+from .models import Post,ProductDemo,Book
 from .forms import ContactForm
 from django.db.models import Q
 # Create your views here.
@@ -51,3 +51,19 @@ def search(request):
         'posts':posts,
         'search_text': search_post,
     })
+    
+def addbook(request):
+    if request.method == 'POST':
+        data = request.POST.copy()
+        book_title = data.get('book_title') # name in html
+        book_descripton = data.get('book_descripton')
+        book_price = data.get('book_price')
+        
+        newbook = Book()
+        newbook.title = book_title
+        newbook.description = book_descripton
+        newbook.price = float(book_price)
+        newbook.save()
+        return redirect('/')
+    
+    return render(request,'company/addbook.html')
