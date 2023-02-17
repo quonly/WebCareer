@@ -1,4 +1,5 @@
 {% extends 'company/base.html' %}
+{% block title %}Add book{% endblock title%}
 {% block content %}
 <h1>Add Book</h1>
 <p>เพิ่มหนังสือ</p>
@@ -10,7 +11,7 @@
      </div>
      <div class="form-group">
         <label for="book_description">รายละเอียดหนังสือ</label>
-        <input type="text" class="form-control" id="book_description" name="book_description">
+        <textarea  class="form-control" id="book_description" name="book_description" rows="5"></textarea>
      </div>
      <div class="form-group">
         <label for="book_price">ราคาหนังสือ</label>
