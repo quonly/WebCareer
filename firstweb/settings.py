@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8odj*t$$apt-t#swgx(%=#c^^==1gcm6&^%%h*#+%1!*p@v-o+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['amtmos07.pythonanywhere.com','localhost','127.0.0:8000']
 
 
 # Application definition
