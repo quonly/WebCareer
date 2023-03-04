@@ -9,7 +9,7 @@
         <img class="img-thumbnail" src="{{ post.featured_pic.url }}" alt="django">
         <div class="card-body">
           <h5 class="card-title">{{post.title}}</h5>
-          <p class="card-text">{{post.description}}</p>
+          <p class="card-text">{{post.description | safe}}</p>
           <a href="blog/{{post.id}}" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
