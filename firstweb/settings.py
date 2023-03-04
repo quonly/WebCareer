@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8odj*t$$apt-t#swgx(%=#c^^==1gcm6&^%%h*#+%1!*p@v-o+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['amtmos07.pythonanywhere.com','localhost','127.0.0:8000']
+ALLOWED_HOSTS = ['amtmos07.pythonanywhere.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -119,6 +119,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = '/home/amtmos07/WebCareer/static'
+STATICFILES_DIRS = [
+    BASE_DIR / "company/static",
+]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
